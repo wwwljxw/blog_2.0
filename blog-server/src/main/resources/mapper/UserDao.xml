@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.forever.blogserver.dao.UserDao">
+
+    <select id="listUserRolesByUsername" resultType="java.lang.String">
+        select role_name
+        from user u,
+             role r,
+             role_user ru
+        where u.username = #{username}
+          and ru.user_id = u.user_id
+          and ru.role_id = r.role_id
+    </select>
+</mapper>
