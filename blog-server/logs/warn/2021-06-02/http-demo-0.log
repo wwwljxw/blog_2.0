@@ -1,6 +1,0 @@
-2021-06-02 01:08:37.286 [background-preinit] WARN  o.s.h.converter.json.Jackson2ObjectMapperBuilder - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-06-02 01:09:03.593 [background-preinit] WARN  o.s.h.converter.json.Jackson2ObjectMapperBuilder - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-06-02 01:09:51.276 [background-preinit] WARN  o.s.h.converter.json.Jackson2ObjectMapperBuilder - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-06-02 01:10:43.609 [background-preinit] WARN  o.s.h.converter.json.Jackson2ObjectMapperBuilder - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-06-02 01:11:43.480 [background-preinit] WARN  o.s.h.converter.json.Jackson2ObjectMapperBuilder - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-06-02 01:12:34.178 [background-preinit] WARN  o.s.h.converter.json.Jackson2ObjectMapperBuilder - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath

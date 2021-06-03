@@ -31,7 +31,6 @@ public class MyDetailsServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException("用户名为空");
         }
         User user = userService.getUserByUsername(username);
-        System.out.println(user);
         if (user != null) {
             List<GrantedAuthority> authorities = new ArrayList<>();
 //            根据用户名查询角色列表

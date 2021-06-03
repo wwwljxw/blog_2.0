@@ -11,4 +11,17 @@
           and ru.user_id = u.user_id
           and ru.role_id = r.role_id
     </select>
+    <select id="getUserByCondition" resultType="com.forever.blogserver.dto.UserDTO" parameterType="com.forever.blogserver.vo.UserQueryVO">
+        select u.avatar, r.role_name, u.nickname, u.create_time, u.update_time, u.is_delete, u.is_silence
+        from user u,
+        role r,
+        role_user ru
+        where u.user_id = ru.user_id and r.role_id = ru.role_id
+        <if test="userQueryVO.roleName!=null and userQueryVO.roleName!=''">
+            and r.role_name like %#{userQueryVO.roleName}%
+        </if>
+        <if test="userQueryVO.nickname!=null and userQueryVO.nickname!=''">
+            and u.nickname like %#{userQueryVO.nickname}%
+        </if>
+    </select>
 </mapper>

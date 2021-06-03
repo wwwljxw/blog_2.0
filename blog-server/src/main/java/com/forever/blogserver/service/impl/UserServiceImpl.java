@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.forever.blog.pojo.User;
 import com.forever.blogserver.dao.UserDao;
+import com.forever.blogserver.dto.UserDTO;
 import com.forever.blogserver.service.UserService;
+import com.forever.blogserver.vo.UserQueryVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -50,5 +52,10 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
         String userPassword = user.getPassword();
         //用加密匹配这个 能匹配返回true 不能返回false
         return   bCryptPasswordEncoder.matches(password, userPassword);
+    }
+
+    @Override
+    public List<UserDTO> getUserByCondition(UserQueryVO userQueryVO) {
+        return this.baseMapper.getUserByCondition(userQueryVO);
     }
 }

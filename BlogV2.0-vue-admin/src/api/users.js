@@ -4,14 +4,11 @@ import request from "../utils/request"
  * @returns {AxiosPromise}
  */
 //查询用户列表
-export  const findUserList=(current,size,roleName,nickname)=>{
+export  const findUserList=(userVO)=>{
   return request({
     url: "/user/getUserList",
     params:{
-      current,
-      size,
-      roleName,
-      nickname
+      userVO,
     }
 
   })

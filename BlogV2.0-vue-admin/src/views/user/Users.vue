@@ -313,8 +313,8 @@
         this.getUserList();
       },
       async getUserList(){
-       const {data} = await  findUserList(this.current,this.size,this.UserQueryVO.roleName,this.UserQueryVO.nickname);
-        this.userList=data.data.data;
+       const {data} = await  findUserList(this.UserQueryVO);
+        this.userList=data.data.userList;
         this.total=data.data.total;
       },
       reset(){
