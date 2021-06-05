@@ -16,13 +16,13 @@
         </el-option>
         <el-option
                 clearable
-                v-for="item in userAuthList"
-                :key="item.userAuth"
-                :label="item.userAuth"
-                :value="item.userAuth">
-          <span >{{ item.userAuth }}</span>
+                v-for="item in userRoleList"
+                :key="item.roleName"
+                :label="item.roleName"
+                :value="item.roleName">
+          <span >{{ item. roleName }}</span>
           <span style="float: right; color: #8492a6; font-size: 13px">
-            <span class="el-tag">{{ item.size }}</span>
+            <span class="el-tag">{{ item.total }}</span>
           </span>
         </el-option>
       </el-select>
@@ -72,7 +72,7 @@
               align="center"
       >
         <template slot-scope="scope">
-          <el-tag size="medium">{{ scope.row.description}}</el-tag>
+          <el-tag size="medium">{{ scope.row.roleName}}</el-tag>
         </template>
       </el-table-column>
 <!--      用户名-->
@@ -164,9 +164,9 @@
             style="padding-top: 20px"
             @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
-            :current-page="current"
+            :current-page="UserQueryVO.current"
             :page-sizes="[5, 10, 20, 30]"
-            :page-size="size"
+            :page-size="UserQueryVO.size"
             layout="total, sizes, prev, pager, next, jumper"
             :total="total">
     </el-pagination>
@@ -238,7 +238,14 @@
 </template>
 
 <script>
-  import {findUserList, updateSilenceById,updateUserInfo,logicDeleteUserById,  addUser} from "../../api/users";
+import {
+  findUserList,
+  updateSilenceById,
+  updateUserInfo,
+  logicDeleteUserById,
+  addUser,
+  getRoleList
+} from "../../api/users";
 
   export default {
     name: "Users",
@@ -314,12 +321,16 @@
       },
       async getUserList(){
        const {data} = await  findUserList(this.UserQueryVO);
-        this.userList=data.data.userList;
-        this.total=data.data.total;
+          this.userList=data.data.userList;
+          this.total=data.data.total;
       },
       reset(){
         this.UserQueryVO.nickname='';
         this.UserQueryVO.userAuth='';
+      },
+      async getRoleList(){
+        const {data} = await getRoleList(this.roleList);
+          this.userRoleList=data.data.roleList;
       },
       async changeSilence(flag,id){
        const {data}=await updateSilenceById(flag,id);

@@ -1,5 +1,7 @@
 package com.forever.blogserver.dto;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +19,13 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDTO {
+
+    private static final long serialVersionUID = 1L;
+
+    @ApiModelProperty(value = "用户表主键")
+    @TableId(value = "user_id", type = IdType.AUTO)
+    private Integer userId;
+
     @ApiModelProperty(value = "头像")
     private String avatar;
 

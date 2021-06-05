@@ -16,10 +16,10 @@ import java.util.List;
 public interface MenuService extends IService<Menu> {
 
     /**
-     * @description: 通过角色名 查找对应的菜单
+     * 通过角色名 查找对应的菜单
      * @author: Lin
      * @date: 2021/6/1 16:13
-     * @param roleName
+     * @param roleName 角色名
      * @return List<MenuDTO>
     */
     List<Menu> getMenuListByUserRole(String roleName);

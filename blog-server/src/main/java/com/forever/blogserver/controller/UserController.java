@@ -30,12 +30,11 @@ public class UserController {
     @GetMapping("/getUserList")
     public Result getUserList(UserQueryVO userQueryVO){
         List<UserDTO> userByCondition = userService.getUserByCondition(userQueryVO);
-
+        int count = userService.count();
         if (userByCondition != null){
-            int tota1 = userByCondition.size();
             return Result.ok()
                     .data("userList",userByCondition)
-                    .data("tota1",tota1);
+                    .data("total",count);
         }
         return Result.error();
     }

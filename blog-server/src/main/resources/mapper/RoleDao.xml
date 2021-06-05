@@ -2,4 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.forever.blogserver.dao.RoleDao">
 
+    <select id="getRoleList" resultType="com.forever.blogserver.dto.RoleDTO">
+        select  role_name,count(ru.role_id) as total
+        from role r,role_user ru
+        where r.role_id = ru.role_id group by ru.role_id
+    </select>
 </mapper>

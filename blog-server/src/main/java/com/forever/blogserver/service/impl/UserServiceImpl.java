@@ -56,6 +56,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
 
     @Override
     public List<UserDTO> getUserByCondition(UserQueryVO userQueryVO) {
+//        页码转换
         return this.baseMapper.getUserByCondition(userQueryVO);
     }
 }
