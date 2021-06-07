@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2021-05-30
  */
 @RestController
-@RequestMapping("/forever.blogserver/user-login")
+@RequestMapping("/user-login")
 public class UserLoginController {
 
 }

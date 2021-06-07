@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * 登录成功
  * @ClassName MyAuthenticationSuccessHandler
- * @Description
  * @Author Lin
  * @Date 2021/5/31 17:34
  **/

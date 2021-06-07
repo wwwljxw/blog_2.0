@@ -11,10 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
 /**
- * @author 傅帅  QQ:1766281636
- * @creat 2020- 12-08-上午 9:16
- **/
+ * 没有权限
+ * @author Lin
+ * @date 2021年6月5日17点02分
+ */
 @Component
 public class MyAccessDeniedHandler implements AccessDeniedHandler {
 

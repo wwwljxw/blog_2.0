@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * 登录失败
  * @ClassName AuthenticationFailureHandler
- * @Description
  * @Author Lin
  * @Date 2021/5/31 22:31
  **/
