@@ -1,5 +1,6 @@
 package com.forever.blogserver.handler;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.AccessDecisionManager;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.ConfigAttribute;
@@ -15,12 +16,17 @@ import java.util.Collection;
  * @Author Lin
  * @Date 2021/6/6 15:09
  **/
+@Slf4j
 @Component
 public class MyAccessDecisionManager implements AccessDecisionManager {
     private final boolean supports = true;
 
     @Override
     public void decide(Authentication authentication, Object object, Collection<ConfigAttribute> configAttributes) throws AccessDeniedException, InsufficientAuthenticationException {
+
+        log.info("[资源权限]: {}", configAttributes);
+        log.info("[用户权限]: {}", authentication.getAuthorities());
+
 //        如果没有需要的权限信息的话直接放行
         if (configAttributes == null) return;
 
@@ -31,6 +37,7 @@ public class MyAccessDecisionManager implements AccessDecisionManager {
             String getAuthority = authority.getAuthority();
 //            再获取需要的权限信息
             for (ConfigAttribute configAttribute : configAttributes) {
+                log.info("[资源角色==用户角色] ？ {} == {}", getAuthority.trim(), authority.getAuthority().trim());
 //                对比角色的权限和需要的权限是否一致，是则直接放行
                 if (getAuthority.equals(configAttribute.getAttribute())) return;
             }

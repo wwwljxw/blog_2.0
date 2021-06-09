@@ -91,6 +91,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         return fsi;
                     }
                 }).anyRequest().permitAll();
+        http.exceptionHandling().accessDeniedHandler(myAccessDeniedHandler);
 //        放行掉这个iframe加载
         http.headers().frameOptions().disable();
 //        关闭csrf

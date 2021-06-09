@@ -3,8 +3,17 @@
 <mapper namespace="com.forever.blogserver.dao.RoleDao">
 
     <select id="getRoleList" resultType="com.forever.blogserver.dto.RoleDTO">
-        select  role_name,count(ru.role_id) as total
-        from role r,role_user ru
-        where r.role_id = ru.role_id group by ru.role_id
+        select role_name, count(ru.role_id) as total
+        from role r,
+             role_user ru
+        where r.role_id = ru.role_id
+        group by ru.role_id
+    </select>
+    <select id="urlRoleList" resultType="com.forever.blogserver.dto.UrlRoleDTO">
+        select a.id, url, method, role_name
+        from api a,
+             role_api ra,
+             role r
+        where a.id = ra.api_id and r.role_id = ra.role_id
     </select>
 </mapper>

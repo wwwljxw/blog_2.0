@@ -1,6 +1,8 @@
 package com.forever.blogserver;
 
+import com.forever.blogserver.dao.RoleDao;
 import com.forever.blogserver.dto.RoleDTO;
+import com.forever.blogserver.dto.UrlRoleDTO;
 import com.forever.blogserver.service.RoleService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +14,11 @@ import java.util.List;
 class BlogServerApplicationTests {
 
     @Autowired
-    private RoleService roleService;
+    private RoleDao roleDao;
 
     @Test
     void contextLoads() {
-        List<RoleDTO> roleList = roleService.getRoleList();
-        roleList.forEach(System.out::println);
+
     }
 
 }
